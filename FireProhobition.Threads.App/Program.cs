@@ -4,10 +4,12 @@ namespace FireProhobition.Threads.App
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             ProhobitionAPI api = new();
-            api.GetMunicipalities();
+            var r = await api.GetFireProhobitionsAsync();
+
+            Console.WriteLine(r.Count);
         }
     }
 }
