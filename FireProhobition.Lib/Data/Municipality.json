@@ -1,0 +1,20 @@
+[
+  {
+    "Code": "AB",
+    "Name": "Stockholms län",
+    "Latitude": 59.325133,
+    "Longitude": 18.070107
+  },
+  {
+    "Code": "BD",
+    "Name": "Norrbottens län",
+    "Latitude": 65.596786,
+    "Longitude": 22.159424
+  },
+  {
+    "Code": "C",
+    "Name": "Uppsala län",
+    "Latitude": 59.854472,
+    "Longitude": 17.657776
+  }
+]
