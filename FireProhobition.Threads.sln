@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireProhobition.Threads.App
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireProhobition.Lib", "FireProhobition.Lib\FireProhobition.Lib.csproj", "{2F6BFA89-29C6-41BD-AF62-7789420EB21E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.Lib", "Threads.Lib\Threads.Lib.csproj", "{A7A3A569-26BD-44F6-B5D9-76B7B10CC6A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2F6BFA89-29C6-41BD-AF62-7789420EB21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F6BFA89-29C6-41BD-AF62-7789420EB21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F6BFA89-29C6-41BD-AF62-7789420EB21E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7A3A569-26BD-44F6-B5D9-76B7B10CC6A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7A3A569-26BD-44F6-B5D9-76B7B10CC6A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7A3A569-26BD-44F6-B5D9-76B7B10CC6A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7A3A569-26BD-44F6-B5D9-76B7B10CC6A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

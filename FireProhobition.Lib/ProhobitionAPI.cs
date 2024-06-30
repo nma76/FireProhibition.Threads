@@ -51,7 +51,7 @@ namespace FireProhobition.Lib
                 var jsonResponse = await response.Content.ReadAsStringAsync();
 
                 var fireProhobition = DeserializeJson<FireProhobitionStatus>(jsonResponse);
-                if (fireProhobition != null)// && (fireProhobition.FireProhibition.StatusCode == 1 || fireProhobition.FireProhibition.StatusCode == 3 || fireProhobition.FireProhibition.StatusCode == 4))
+                if (fireProhobition != null)//TODO && (fireProhobition.FireProhibition.StatusCode == 1 || fireProhobition.FireProhibition.StatusCode == 3 || fireProhobition.FireProhibition.StatusCode == 4))
                 {
                     result.Add(fireProhobition);
                 }
