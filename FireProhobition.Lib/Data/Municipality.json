@@ -6,15 +6,123 @@
     "longitude": 18.070107
   },
   {
+    "code": "AC",
+    "name": "Västerbottens län",
+    "latitude": 63.827951,
+    "longitude": 20.256729
+  },
+  {
     "code": "BD",
     "name": "Norrbottens län",
-    "latitude": 65.596786,
-    "longitude": 22.159424
+    "latitude": 65.59707,
+    "longitude": 22.158737
   },
   {
     "code": "C",
     "name": "Uppsala län",
     "latitude": 59.854472,
     "longitude": 17.657776
+  },
+  {
+    "code": "D",
+    "name": "Södermanlands län",
+    "latitude": 58.753422,
+    "longitude": 17.022629
+  },
+  {
+    "code": "E",
+    "name": "Östergötlands län",
+    "latitude": 58.399553,
+    "longitude": 15.630798
+  },
+  {
+    "code": "F",
+    "name": "Jönköpings län",
+    "latitude": 57.770123,
+    "longitude": 14.176483
+  },
+  {
+    "code": "G",
+    "name": "Kronobergs län",
+    "latitude": 56.887252,
+    "longitude": 14.800644
+  },
+  {
+    "code": "H",
+    "name": "Kalmar län",
+    "latitude": 56.670377,
+    "longitude": 16.339417
+  },
+  {
+    "code": "I",
+    "name": "Gotlands län",
+    "latitude": 57.626288,
+    "longitude": 18.308716
+  },
+  {
+    "code": "K",
+    "name": "Blekinge län",
+    "latitude": 56.197919,
+    "longitude": 15.634918
+  },
+  {
+    "code": "M",
+    "name": "Skåne län",
+    "latitude": 55.595419,
+    "longitude": 13.010559
+  },
+  {
+    "code": "N",
+    "name": "Hallands län",
+    "latitude": 56.673584,
+    "longitude": 12.85675
+  },
+  {
+    "code": "O",
+    "name": "Västra Götalands län",
+    "latitude": 57.723219,
+    "longitude": 11.991577
+  },
+  {
+    "code": "S",
+    "name": "Värmlands län",
+    "latitude": 59.380436,
+    "longitude": 13.487091
+  },
+  {
+    "code": "T",
+    "name": "Örebro län",
+    "latitude": 59.266582,
+    "longitude": 15.200958
+  },
+  {
+    "code": "U",
+    "name": "Västmanlands län",
+    "latitude": 59.619158,
+    "longitude": 16.548157
+  },
+  {
+    "code": "W",
+    "name": "Dalarnas län",
+    "latitude": 60.60315,
+    "longitude": 15.621185
+  },
+  {
+    "code": "X",
+    "name": "Gävleborgs län",
+    "latitude": 60.678559,
+    "longitude": 17.166138
+  },
+  {
+    "code": "Y",
+    "name": "Västernorrlands län",
+    "latitude": 62.631244,
+    "longitude": 17.932434
+  },
+  {
+    "code": "Z",
+    "name": "Jämtlands län",
+    "latitude": 63.172334,
+    "longitude": 14.672241
   }
 ]
