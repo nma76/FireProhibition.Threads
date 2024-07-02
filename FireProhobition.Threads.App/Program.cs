@@ -23,7 +23,7 @@ namespace FireProhobition.Threads.App
                 return;
             }
 
-            //// Get Fire Prohobitions
+            // Get Fire Prohobitions
             //ProhobitionAPI api = new();
             //var municipalityProhobitionStatus = await api.GetFireProhobitionsAsync();
             //var filteredProhobitionStatus = municipalityProhobitionStatus.Where(x => x.FireProhibition.StatusCode == 1 || x.FireProhibition.StatusCode == 3 || x.FireProhibition.StatusCode == 4);
@@ -46,8 +46,9 @@ namespace FireProhobition.Threads.App
             //}
 
             //// Post to Threads
-            //ThreadsAPI api = new(threadsSettings.UserId, threadsSettings.ApiKey);
-            //await api.Test();
+            //ThreadsAPI threadsApi = new(appSettings.Threads.UserId, appSettings.Threads.ApiKey);
+            //var result = await threadsApi.CreateTextPost("Hello World from Threads API");
+            //Console.WriteLine($"Status for creating post: {result}");
         }
     }
 }
