@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireProhobition.Threads.App", "FireProhobition.Threads.App\FireProhobition.Threads.App.csproj", "{27BC90E0-4D64-4682-B586-A5E6A586F127}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireProhibition.Threads.App", "FireProhibition.Threads.App\FireProhibition.Threads.App.csproj", "{27BC90E0-4D64-4682-B586-A5E6A586F127}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireProhobition.Lib", "FireProhobition.Lib\FireProhobition.Lib.csproj", "{2F6BFA89-29C6-41BD-AF62-7789420EB21E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FireProhibition.Lib", "FireProhibition.Lib\FireProhibition.Lib.csproj", "{2F6BFA89-29C6-41BD-AF62-7789420EB21E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Threads.Lib", "Threads.Lib\Threads.Lib.csproj", "{A7A3A569-26BD-44F6-B5D9-76B7B10CC6A2}"
 EndProject

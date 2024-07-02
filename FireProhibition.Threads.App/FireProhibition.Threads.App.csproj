@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FireProhobition.Lib\FireProhobition.Lib.csproj" />
+    <ProjectReference Include="..\FireProhibition.Lib\FireProhibition.Lib.csproj" />
     <ProjectReference Include="..\Threads.Lib\Threads.Lib.csproj" />
   </ItemGroup>
 

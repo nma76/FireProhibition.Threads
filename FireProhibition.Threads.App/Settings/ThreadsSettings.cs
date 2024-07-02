@@ -1,4 +1,4 @@
-﻿namespace FireProhobition.Threads.App.Settings
+﻿namespace FireProhibition.Threads.App.Settings
 {
     internal class ThreadsSettings
     {

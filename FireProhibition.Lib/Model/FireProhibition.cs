@@ -1,6 +1,6 @@
-﻿namespace FireProhobition.Lib.Model
+﻿namespace FireProhibition.Lib.Model
 {
-    public class FireProhobitionStatus
+    public class FireProhibitionStatus
     {
         public required string County { get; set; }
         public required string CountyCode { get; set; }

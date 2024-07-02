@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Text.Json;
 
-namespace FireProhobition.Lib
+namespace FireProhibition.Lib
 {
     internal class Constants
     {
@@ -13,6 +13,6 @@ namespace FireProhobition.Lib
 
         // API
         internal const string ApiBase = "https://api.msb.se/brandrisk/v2/";
-        internal const string FireProhobitionEndpoint = "FireProhibition/sv/{0}/{1}";
+        internal const string FireProhibitionEndpoint = "FireProhibition/sv/{0}/{1}";
     }
 }

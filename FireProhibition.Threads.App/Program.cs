@@ -1,9 +1,9 @@
-﻿using FireProhobition.Lib;
-using FireProhobition.Threads.App.Settings;
+﻿using FireProhibition.Lib;
+using FireProhibition.Threads.App.Settings;
 using Microsoft.Extensions.Configuration;
 using Threads.Lib;
 
-namespace FireProhobition.Threads.App
+namespace FireProhibition.Threads.App
 {
     internal class Program
     {
@@ -23,23 +23,31 @@ namespace FireProhobition.Threads.App
                 return;
             }
 
-            // Get Fire Prohobitions
-            //ProhobitionAPI api = new();
-            //var municipalityProhobitionStatus = await api.GetFireProhobitionsAsync();
-            //var filteredProhobitionStatus = municipalityProhobitionStatus.Where(x => x.FireProhibition.StatusCode == 1 || x.FireProhibition.StatusCode == 3 || x.FireProhibition.StatusCode == 4);
+            /* 
+            TODO:
+            Add code to filter out municipalities with prohibition and create a post
+            OR
+            Create post with "No municipalities have fire prohibition" 
+             
+             */
+
+            // Get Fire prohibitions
+            //prohibitionAPI api = new();
+            //var municipalityprohibitionStatus = await api.GetFireProhibitionsAsync();
+            //var filteredprohibitionStatus = municipalityprohibitionStatus.Where(x => x.FireProhibition.StatusCode == 1 || x.FireProhibition.StatusCode == 3 || x.FireProhibition.StatusCode == 4);
 
             //Console.WriteLine("Status for all municipalities:");
-            //foreach (var item in municipalityProhobitionStatus)
+            //foreach (var item in municipalityprohibitionStatus)
             //{
             //    Console.WriteLine($"{item.Municipality,-30}{item.FireProhibition.Status,20}");
             //}
 
-            //if (filteredProhobitionStatus.Any())
+            //if (filteredprohibitionStatus.Any())
             //{
             //    Console.WriteLine("----------------------------------------");
 
-            //    Console.WriteLine("Status for municipalities with prohobition:");
-            //    foreach (var item in filteredProhobitionStatus)
+            //    Console.WriteLine("Status for municipalities with prohibition:");
+            //    foreach (var item in filteredprohibitionStatus)
             //    {
             //        Console.WriteLine($"{item.Municipality,-30}{item.FireProhibition.Status,20}");
             //    }

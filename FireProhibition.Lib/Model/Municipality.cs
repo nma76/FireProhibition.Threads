@@ -1,4 +1,4 @@
-﻿namespace FireProhobition.Lib.Model
+﻿namespace FireProhibition.Lib.Model
 {
     public class Municipality
     {
