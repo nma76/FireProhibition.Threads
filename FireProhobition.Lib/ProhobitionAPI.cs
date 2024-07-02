@@ -1,6 +1,6 @@
 ﻿using FireProhobition.Lib.Model;
-using System.Text.Json;
-using System.Linq;
+using Json.Lib;
+using System.Net;
 
 namespace FireProhobition.Lib
 {
@@ -11,28 +11,9 @@ namespace FireProhobition.Lib
             BaseAddress = new Uri(Constants.ApiBase)
         };
 
-        internal static T? ReadJson<T>(string filePath)
-        {
-            string text = File.ReadAllText(filePath);
-            return DeserializeJson<T>(text);
-        }
-        internal static async Task<T?> ReadJsonAsync<T>(string filePath)
-        {
-            using FileStream stream = File.OpenRead(filePath);
-            return await DeserializeJson<T>(stream);
-        }
-        internal static T? DeserializeJson<T>(string text)
-        {
-            return JsonSerializer.Deserialize<T>(text, Constants.SerializerOptions);
-        }
-        internal static async Task<T?> DeserializeJson<T>(FileStream stream)
-        {
-            return await JsonSerializer.DeserializeAsync<T>(stream, Constants.SerializerOptions);
-        }
-
         internal Municipality[] GetMunicipalities()
         {
-            var municipalities = ReadJson<Municipality[]>(Constants.MunicipalityDataPath);
+            var municipalities = Converter.ReadJson<Municipality[]>(Constants.MunicipalityDataPath);
             return municipalities ?? [];
         }
 
@@ -45,13 +26,22 @@ namespace FireProhobition.Lib
             {
                 var uri = string.Format(Constants.FireProhobitionEndpoint, municipality.Latitude.ToString(Constants.NumberFormat), municipality.Longitude.ToString(Constants.NumberFormat));
 
-                using HttpResponseMessage response = await _client.GetAsync(uri);
+                var httpRequestMessage = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,                    
+                    RequestUri = new Uri(uri, UriKind.Relative),
+                    Headers = {
+                        { HttpRequestHeader.ContentType.ToString(), "application/json" }
+                    }
+                };
+
+                using HttpResponseMessage response = await _client.SendAsync(httpRequestMessage);
 
                 response.EnsureSuccessStatusCode();
                 var jsonResponse = await response.Content.ReadAsStringAsync();
 
-                var fireProhobition = DeserializeJson<FireProhobitionStatus>(jsonResponse);
-                if (fireProhobition != null)//TODO && (fireProhobition.FireProhibition.StatusCode == 1 || fireProhobition.FireProhibition.StatusCode == 3 || fireProhobition.FireProhibition.StatusCode == 4))
+                var fireProhobition = Converter.DeserializeJson<FireProhobitionStatus>(jsonResponse);
+                if (fireProhobition != null)
                 {
                     result.Add(fireProhobition);
                 }

@@ -5,12 +5,6 @@ namespace FireProhobition.Lib
 {
     internal class Constants
     {
-        // Serialization
-        internal static JsonSerializerOptions SerializerOptions = new()
-        {
-            PropertyNameCaseInsensitive = true
-        };
-
         // Number Format
         internal static NumberFormatInfo NumberFormat = new() { NumberDecimalSeparator = "." };
 

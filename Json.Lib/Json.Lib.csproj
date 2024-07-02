@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Json.Lib\Json.Lib.csproj" />
-  </ItemGroup>
-
 </Project>
