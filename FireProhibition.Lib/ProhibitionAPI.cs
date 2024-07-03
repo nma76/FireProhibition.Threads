@@ -12,27 +12,27 @@ namespace FireProhibition.Lib
             BaseAddress = new Uri(Constants.ApiBase)
         };
 
-        // Load the file containing municipalities and return them as array
-        internal static Municipality[] GetMunicipalities()
+        // Load the file containing locations and return them as array
+        internal static Location[] GetLocations()
         {
-            var municipalities = Converter.ReadJson<Municipality[]>(Constants.MunicipalityDataPath);
-            return municipalities ?? [];
+            var locations = Converter.ReadJson<Location[]>(Constants.DataPath);
+            return locations ?? [];
         }
 
-        // Fetch fire prohibition status for all municipalities
-        public async Task<List<FireProhibitionStatus>> GetFireProhibitionsAsync()
+        // Fetch fire prohibition status for all locations
+        public async Task<List<FireProhibitionStatus>> GetFireProhibitionsAsync(bool returnAll = false)
         {
             // List to store all fire prohibitions
             List<FireProhibitionStatus> result = [];
 
-            // Get list of all municipalities from data file
-            var municipalities = GetMunicipalities();
+            // Get list of all locations from data file
+            var locations = GetLocations();
 
-            // Iterate all municipalities and fetch current fire prohibition status
-            foreach (var municipality in municipalities)
+            // Iterate all locations and fetch current fire prohibition status
+            foreach (var location in locations)
             {
                 // Create endpoint uri for fetching fire prohibition
-                var uri = string.Format(Constants.FireProhibitionEndpoint, municipality.Latitude.ToString(Constants.NumberFormat), municipality.Longitude.ToString(Constants.NumberFormat));
+                var uri = string.Format(Constants.FireProhibitionEndpoint, location.Latitude.ToString(Constants.NumberFormat), location.Longitude.ToString(Constants.NumberFormat));
 
                 // Create request message
                 var httpRequestMessage = new HttpRequestMessage
@@ -55,18 +55,16 @@ namespace FireProhibition.Lib
                     // Add to list
                     if (FireProhibition != null)
                     {
-                        result.Add(FireProhibition);
+                        // Only add location if returnAll = true or the location has a fire prohibition
+                        if (returnAll || FireProhibition.FireProhibition.StatusCode is 1 or 3 or 4)
+                        {
+                            result.Add(FireProhibition);
+                        }
                     }
                 }
             }
 
             return result;
-        }
-
-        public async Task<List<FireProhibitionStatus>> GetMunicipalitiesWithFireProhibitionsAsync()
-        {
-            var allFireProhibitions = await GetFireProhibitionsAsync();
-            return allFireProhibitions.Where(x => x.FireProhibition.StatusCode is 1 or 3 or 4).ToList();
         }
     }
 }

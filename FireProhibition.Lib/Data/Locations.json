@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Arvika",
+    "latitude": 59.658723,
+    "longitude": 12.606812
+  },
+  {
+    "name": "Charlottenberg",
+    "latitude": 59.885061,
+    "longitude": 12.304859
+  },
+  {
+    "name": "Filipstad",
+    "latitude": 59.713136,
+    "longitude": 14.16893
+  },
+  {
+    "name": "Forshaga",
+    "latitude": 59.531707,
+    "longitude": 13.481941
+  },
+  {
+    "name": "Grums",
+    "latitude": 59.358396,
+    "longitude": 13.123169
+  },
+  {
+    "name": "Hagfors",
+    "latitude": 60.034674,
+    "longitude": 13.699951
+  },
+  {
+    "name": "Karlstad",
+    "latitude": 59.383584,
+    "longitude": 13.481598
+  },
+  {
+    "name": "Kil",
+    "latitude": 59.50297,
+    "longitude": 13.314056
+  },
+  {
+    "name": "Kristinehamn",
+    "latitude": 59.310067,
+    "longitude": 14.111938
+  },
+  {
+    "name": "Munkfors",
+    "latitude": 59.836535,
+    "longitude": 13.540649
+  },
+  {
+    "name": "Skoghall",
+    "latitude": 59.328987,
+    "longitude": 13.496704
+  },
+  {
+    "name": "Storfors",
+    "latitude": 59.535711,
+    "longitude": 14.278107
+  },
+  {
+    "name": "Sunne",
+    "latitude": 59.839985,
+    "longitude": 13.142395
+  },
+  {
+    "name": "Säffle",
+    "latitude": 59.136499,
+    "longitude": 12.924042
+  },
+  {
+    "name": "Torsby",
+    "latitude": 60.137402,
+    "longitude": 13.003693
+  },
+  {
+    "name": "Årjäng",
+    "latitude": 59.389878,
+    "longitude": 12.133713
+  }
+]

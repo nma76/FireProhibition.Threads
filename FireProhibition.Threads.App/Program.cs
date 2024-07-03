@@ -9,11 +9,12 @@ namespace FireProhibition.Threads.App
     {
         static async Task Main(string[] args)
         {
-            // Read config
+            // Read config file
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false);
 
+            // Get config section as typed object
             IConfiguration config = builder.Build();
             var appSettings = config.GetSection("AppSettings").Get<AppSettings>();
 
@@ -23,40 +24,18 @@ namespace FireProhibition.Threads.App
                 return;
             }
 
-            /* 
-            TODO:
-            Add code to filter out municipalities with prohibition and create a post
-            OR
-            Create post with "No municipalities have fire prohibition" 
-             
-             */
-
             // Get Fire prohibitions
-            //ProhibitionAPI prohibitionApi = new();
-            //var municipalityprohibitionStatus = await api.GetFireProhibitionsAsync();
-            //var filteredprohibitionStatus = municipalityprohibitionStatus.Where(x => x.FireProhibition.StatusCode == 1 || x.FireProhibition.StatusCode == 3 || x.FireProhibition.StatusCode == 4);
+            ProhibitionAPI prohibitionApi = new();
+            var prohibitionStatus = await prohibitionApi.GetFireProhibitionsAsync();
+            var postContent = ThreadsPost.CreateTextPost(prohibitionStatus);
 
-            //Console.WriteLine("Status for all municipalities:");
-            //foreach (var item in municipalityprohibitionStatus)
-            //{
-            //    Console.WriteLine($"{item.Municipality,-30}{item.FireProhibition.Status,20}");
-            //}
-
-            //if (filteredprohibitionStatus.Any())
-            //{
-            //    Console.WriteLine("----------------------------------------");
-
-            //    Console.WriteLine("Status for municipalities with prohibition:");
-            //    foreach (var item in filteredprohibitionStatus)
-            //    {
-            //        Console.WriteLine($"{item.Municipality,-30}{item.FireProhibition.Status,20}");
-            //    }
-            //}
+            // Write post content to console
+            Console.WriteLine(postContent);
 
             //// Post to Threads
-            //ThreadsAPI threadsApi = new(appSettings.Threads.UserId, appSettings.Threads.ApiKey);
-            //var result = await threadsApi.CreateTextPost("Testing tags via API. #threadsapi");
-            //Console.WriteLine($"Status for creating post: {result}");
+            ThreadsAPI threadsApi = new(appSettings.Threads.UserId, appSettings.Threads.ApiKey);
+            var result = await threadsApi.CreateTextPost(postContent);
+            Console.WriteLine($"Status for creating post: {result}");
         }
     }
 }

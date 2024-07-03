@@ -9,7 +9,7 @@ namespace FireProhibition.Lib
         internal static NumberFormatInfo NumberFormat = new() { NumberDecimalSeparator = "." };
 
         // Data
-        internal const string MunicipalityDataPath = @"./Data/Municipality.json";
+        internal const string DataPath = @"./Data/Locations.json";
 
         // API
         internal const string ApiBase = "https://api.msb.se/brandrisk/v2/";
