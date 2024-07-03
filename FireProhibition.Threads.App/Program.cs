@@ -27,6 +27,8 @@ namespace FireProhibition.Threads.App
             // Get Fire prohibitions
             ProhibitionAPI prohibitionApi = new();
             var prohibitionStatus = await prohibitionApi.GetFireProhibitionsAsync();
+
+            //Create a post
             var postContent = ThreadsPost.CreateTextPost(prohibitionStatus);
 
             // Write post content to console
