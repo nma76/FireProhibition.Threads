@@ -32,7 +32,7 @@ namespace FireProhibition.Threads.App
              */
 
             // Get Fire prohibitions
-            //prohibitionAPI api = new();
+            //ProhibitionAPI prohibitionApi = new();
             //var municipalityprohibitionStatus = await api.GetFireProhibitionsAsync();
             //var filteredprohibitionStatus = municipalityprohibitionStatus.Where(x => x.FireProhibition.StatusCode == 1 || x.FireProhibition.StatusCode == 3 || x.FireProhibition.StatusCode == 4);
 

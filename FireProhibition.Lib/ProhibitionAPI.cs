@@ -37,7 +37,7 @@ namespace FireProhibition.Lib
                 // Create request message
                 var httpRequestMessage = new HttpRequestMessage
                 {
-                    Method = HttpMethod.Get,                    
+                    Method = HttpMethod.Get,
                     RequestUri = new Uri(uri, UriKind.Relative),
                     Headers = {
                         { HttpRequestHeader.ContentType.ToString(), "application/json" }
@@ -46,7 +46,7 @@ namespace FireProhibition.Lib
 
                 // Send and get response
                 using HttpResponseMessage response = await _client.SendAsync(httpRequestMessage);
-                if(response.StatusCode == HttpStatusCode.OK)
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
                     // Get JSON response and deserialize
                     var jsonResponse = await response.Content.ReadAsStringAsync();
@@ -61,6 +61,12 @@ namespace FireProhibition.Lib
             }
 
             return result;
+        }
+
+        public async Task<List<FireProhibitionStatus>> GetMunicipalitiesWithFireProhibitionsAsync()
+        {
+            var allFireProhibitions = await GetFireProhibitionsAsync();
+            return allFireProhibitions.Where(x => x.FireProhibition.StatusCode is 1 or 3 or 4).ToList();
         }
     }
 }
