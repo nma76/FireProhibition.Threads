@@ -55,7 +55,7 @@ namespace FireProhibition.Threads.App
 
             //// Post to Threads
             //ThreadsAPI threadsApi = new(appSettings.Threads.UserId, appSettings.Threads.ApiKey);
-            //var result = await threadsApi.CreateTextPost("Hello World from Threads API");
+            //var result = await threadsApi.CreateTextPost("Testing tags via API. #threadsapi");
             //Console.WriteLine($"Status for creating post: {result}");
         }
     }

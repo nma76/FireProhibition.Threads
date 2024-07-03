@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using Threads.Lib.Model;
 using Json.Lib;
+using System.Web;
 
 namespace Threads.Lib
 {
@@ -31,6 +32,9 @@ namespace Threads.Lib
             {
                 return false;
             }
+
+            // Url encode the text
+            content = HttpUtility.UrlEncode(content);
 
             // Create endpoint uri for creating post
             var uri = string.Format(Constants.CreatePostEndpoint, _userId, content);
