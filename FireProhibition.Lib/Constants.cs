@@ -14,5 +14,6 @@ namespace FireProhibition.Lib
         // API
         internal const string ApiBase = "https://api.msb.se/brandrisk/v2/";
         internal const string FireProhibitionEndpoint = "FireProhibition/sv/{0}/{1}";
+        internal const string FireRiskEndpoint = "CurrentRisk/sv/{0}/{1}";
     }
 }

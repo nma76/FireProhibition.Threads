@@ -4,34 +4,42 @@ namespace FireProhibition.Threads.App
 {
     internal class ThreadsPost
     {
+        internal static readonly string byline = "\nCreated by https://github.com/nma76/FireProhibition.Threads";
+
         internal static string CreateTextPost(List<FireProhibitionStatus> fireProhibitions)
         {
             string content;
-            var byline = "\nCreated by https://github.com/nma76/FireProhibition.Threads";
-
             if (fireProhibitions.Count == 0)
             {
                 content = $"Just nu finns inga eldningsförbud i Värmland!\n";
             }
-            else {
+            else
+            {
                 content = $"Just nu är det eldningsförbud i {fireProhibitions.Count} kommuner i Värmland!\n";
                 foreach (var fireProhibition in fireProhibitions)
                 {
                     content += $"{fireProhibition.County}\n";
-                    //if (fireProhibition.FireProhibition.Url != null)
-                    //{
-                    //    content += $"Läs mer: {fireProhibition.FireProhibition.Url}\n\n";
-                    //}
-                }
-
-                if (content.Length > (500 - byline.Length))
-                {
-                    content = string.Concat(content.AsSpan(0, 440), "...");
                 }
             }
 
-            content += byline;
-            return content;
+            return FormatPost(content);
+        }
+
+        internal static string CreateTextPost(List<FireRiskStatus> riskStatuses)
+        {
+            string content = "Brandrisk i Värmland:\n";
+            foreach (var riskStatus in riskStatuses)
+            {
+                content += $"{riskStatus.Location?.Name}: {riskStatus.Forecast.RiskIndex}\n";
+            }
+
+            return FormatPost(content);
+        }
+
+        internal static string FormatPost(string content)
+        {
+            var formattedContent = content.Length > (500 - byline.Length) ? string.Concat(content.AsSpan(0, 440), "...") : content;
+            return formattedContent + byline;
         }
     }
 }

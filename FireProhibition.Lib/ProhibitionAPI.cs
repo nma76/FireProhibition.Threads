@@ -66,5 +66,49 @@ namespace FireProhibition.Lib
 
             return result;
         }
+
+        public async Task<List<FireRiskStatus>> GetFireRiskAsync()
+        {
+            // List to store all fire prohibitions
+            List<FireRiskStatus> result = [];
+
+            // Get list of all locations from data file
+            var locations = GetLocations();
+
+            // Iterate all locations and fetch current fire prohibition status
+            foreach (var location in locations)
+            {
+                // Create endpoint uri for fetching fire prohibition
+                var uri = string.Format(Constants.FireRiskEndpoint, location.Latitude.ToString(Constants.NumberFormat), location.Longitude.ToString(Constants.NumberFormat));
+
+                // Create request message
+                var httpRequestMessage = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri(uri, UriKind.Relative),
+                    Headers = {
+                        { HttpRequestHeader.ContentType.ToString(), "application/json" }
+                    }
+                };
+
+                // Send and get response
+                using HttpResponseMessage response = await _client.SendAsync(httpRequestMessage);
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    // Get JSON response and deserialize
+                    var jsonResponse = await response.Content.ReadAsStringAsync();
+                    var fireRisk = Converter.DeserializeJson<FireRiskStatus>(jsonResponse);
+
+                    // Add to list
+                    if (fireRisk != null)
+                    {
+                        fireRisk.Location = location;
+                        result.Add(fireRisk);
+                    }
+                }
+            }
+
+            return result;
+        }
     }
 }

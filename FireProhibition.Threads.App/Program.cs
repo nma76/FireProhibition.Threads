@@ -26,18 +26,21 @@ namespace FireProhibition.Threads.App
 
             // Get Fire prohibitions
             ProhibitionAPI prohibitionApi = new();
-            var prohibitionStatus = await prohibitionApi.GetFireProhibitionsAsync();
+            //var prohibitionStatus = await prohibitionApi.GetFireProhibitionsAsync();
+            var riskStatus = await prohibitionApi.GetFireRiskAsync();
 
             //Create a post
-            var postContent = ThreadsPost.CreateTextPost(prohibitionStatus);
+            //var prohibitionPostContent = ThreadsPost.CreateTextPost(prohibitionStatus);
+            var riskPostContent = ThreadsPost.CreateTextPost(riskStatus);
 
             // Write post content to console
-            Console.WriteLine(postContent);
+            //Console.WriteLine(prohibitionPostContent);
+            Console.WriteLine(riskPostContent);
 
             //// Post to Threads
-            ThreadsAPI threadsApi = new(appSettings.Threads.UserId, appSettings.Threads.ApiKey);
-            var result = await threadsApi.CreateTextPost(postContent);
-            Console.WriteLine($"Status for creating post: {result}");
+            //ThreadsAPI threadsApi = new(appSettings.Threads.UserId, appSettings.Threads.ApiKey);
+            //var result = await threadsApi.CreateTextPost(postContent);
+            //Console.WriteLine($"Status for creating post: {result}");
         }
     }
 }
