@@ -4,14 +4,9 @@ using FireProhibition.Threads.App.Settings;
 
 namespace FireProhibition.Threads.App
 {
-    internal class ThreadsPost : IThreadsPost
+    internal class ThreadsPost(AppSettings appSettings) : IThreadsPost
     {
-        private readonly AppSettings _appSettings;
-
-        public ThreadsPost(AppSettings appSettings)
-        {
-            _appSettings = appSettings;
-        }
+        private readonly AppSettings _appSettings = appSettings;
 
         public string CreateTextPost(List<FireProhibitionStatus> fireProhibitions)
         {
