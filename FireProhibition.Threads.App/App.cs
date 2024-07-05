@@ -22,8 +22,8 @@ namespace FireProhibition.Threads.App
             var riskPostContent = _threadsPost.CreateTextPost(riskStatus);
 
             // Write post content to console
-            Console.WriteLine(prohibitionPostContent);
-            Console.WriteLine(riskPostContent);
+            //Console.WriteLine(prohibitionPostContent);
+            //Console.WriteLine(riskPostContent);
 
             // Post to Threads
             bool result;
@@ -32,8 +32,8 @@ namespace FireProhibition.Threads.App
             result = threadsApi.CreateTextPost(prohibitionPostContent).Result;
             Console.WriteLine($"Status for creating post: {result}");
 
-             result = threadsApi.CreateTextPost(riskPostContent).Result;
-            Console.WriteLine($"Status for creating post: {result}");
+            //result = threadsApi.CreateTextPost(riskPostContent).Result;
+            //Console.WriteLine($"Status for creating post: {result}");
         }
     }
 }
