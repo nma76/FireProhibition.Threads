@@ -26,6 +26,7 @@ namespace FireProhibition.Threads.App
 
             var serviceProvider = new ServiceCollection()
                 .AddSingleton(appSettings)
+                .AddSingleton<IThreadsPost, ThreadsPost>()
                 .AddSingleton<IApp, App>()
                 .BuildServiceProvider();
 

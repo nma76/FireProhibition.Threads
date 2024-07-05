@@ -1,33 +1,32 @@
 ﻿using FireProhibition.Lib.Model;
+using FireProhibition.Threads.App.Interface;
+using FireProhibition.Threads.App.Settings;
 
 namespace FireProhibition.Threads.App
 {
-    internal class ThreadsPost
+    internal class ThreadsPost : IThreadsPost
     {
-        internal static readonly string byline = "\nCreated by https://github.com/nma76/FireProhibition.Threads";
+        private readonly AppSettings _appSettings;
 
-        internal static string CreateTextPost(List<FireProhibitionStatus> fireProhibitions)
+        public ThreadsPost(AppSettings appSettings)
         {
-            string content;
-            if (fireProhibitions.Count == 0)
+            _appSettings = appSettings;
+        }
+
+        public string CreateTextPost(List<FireProhibitionStatus> fireProhibitions)
+        {
+            string content = string.Format(_appSettings.FireProhibitionContent, fireProhibitions.Count);
+            foreach (var fireProhibition in fireProhibitions)
             {
-                content = $"Just nu finns inga eldningsförbud i Värmland!\n";
-            }
-            else
-            {
-                content = $"Just nu är det eldningsförbud i {fireProhibitions.Count} kommuner i Värmland!\n";
-                foreach (var fireProhibition in fireProhibitions)
-                {
-                    content += $"{fireProhibition.County}\n";
-                }
+                content += $"{fireProhibition.County}\n";
             }
 
             return FormatPost(content);
         }
 
-        internal static string CreateTextPost(List<FireRiskStatus> riskStatuses)
+        public string CreateTextPost(List<FireRiskStatus> riskStatuses)
         {
-            string content = "Brandrisk i Värmland:\n";
+            string content = _appSettings.FireRiskContent;
             foreach (var riskStatus in riskStatuses)
             {
                 content += $"{riskStatus.Location?.Name}: {riskStatus.Forecast.RiskIndex}\n";
@@ -36,10 +35,10 @@ namespace FireProhibition.Threads.App
             return FormatPost(content);
         }
 
-        internal static string FormatPost(string content)
+        string FormatPost(string content)
         {
-            var formattedContent = content.Length > (500 - byline.Length) ? string.Concat(content.AsSpan(0, 440), "...") : content;
-            return formattedContent + byline;
+            var formattedContent = content.Length > (500 - _appSettings.Byline.Length) ? string.Concat(content.AsSpan(0, 440), "...") : content;
+            return formattedContent + _appSettings.Byline;
         }
     }
 }
